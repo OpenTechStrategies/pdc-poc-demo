@@ -66,7 +66,7 @@ The PoC Demo has three screens:
    The search must therefore match on both organizational information
    and on proposal information.  Each proposal in the system is
    associated with its corresponding proposing organization (see the
-   [Entity Relationship Diagram (ERD)](TODO: WE NEED TO MAKE AN ERD).
+   [Entity Relationship Diagram (ERD)](TODO: WE NEED TO MAKE AN ERD)).
 
 3) **API documentation.** 
 
