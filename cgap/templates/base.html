@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %} - CGAP</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='lib/css/bootstrap.min.css') }}">
+		<script type="text/javascript" src="{{ url_for('static', filename='lib/js/bootstrap.min.js') }}"></script>
+	</head>
+	<body>
+		<div class="container">
+			{% for message in get_flashed_messages() %}
+				<div class="alert alert-primary" role="alert">{{ message }}</div>
+			{% endfor %}
+		</div>
+		<div class="container">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

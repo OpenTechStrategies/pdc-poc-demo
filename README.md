@@ -25,6 +25,6 @@ pipenv run flask init-db
 Once you have set up your environment you can run the project via flask:
 
 ```
-$ export FLASK_APP=app
+$ export FLASK_APP=cgap
 $ pipenv run flask run
 ```
