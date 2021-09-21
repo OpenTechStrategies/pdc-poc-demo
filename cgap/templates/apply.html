@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}Apply{% endblock %}
+
+{% block content %}
+<h1>Apply here</h1>
+<form>
+	<fieldset>
+		<legend>Organization</legend>
+		<div class="mb-3">
+			<label for="orgName" class="form-label">Organization Name</label>
+			<input type="text" name='orgName' id='orgName' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="orgMissionStatement" class="form-label">Organization Mission</label>
+			<textarea name='orgMissionStatement' id='orgMissionStatement' class="form-control" aria-describedby="orgMissionStatementHelp"></textarea>
+			<div id="orgMissionStatementHelp" class="form-text">A sample description.</div>
+		</div>
+		<div class="mb-3">
+			<label for="orgWebsite" class="form-label">Organization Website</label>
+			<input type="text" name='orgWebsite' id='orgWebsite' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="orgEntityType" class="form-label">Entity Type</label>
+			<select id="orgEntityType" class="form-select">
+				<option value="501c3">501(c)(3)</option>
+			</select>
+		</div>
+		<div class="mb-3">
+			<label for="orgRegistrationNumber" class="form-label">Registration Number</label>
+			<input type="text" name='orgRegistrationNumber' id='orgRegistrationNumber' class="form-control" aria-describedby="orgRegistrationNumberHelp">
+			<div id="orgRegistrationNumberHelp" class="form-text">(e.g. EIN / TIN)</div>
+		</div>
+		<div class="mb-3">
+			<label for="orgAddress" class="form-label">Organization Address</label>
+			<input type="text" name='orgAddress' id='orgAddress' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="orgPhone" class="form-label">Organization Phone</label>
+			<input type="text" name='orgPhone' id='orgPhone' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="orgEmail" class="form-label">Organization Email</label>
+			<input type="email" name='orgEmail' id='orgEmail' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="orgDba" class="form-label">Organization DBA</label>
+			<input type="text" name='orgDba' id='orgDba' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="orgDba" class="form-label">Legal Documents</label>
+			(TKTKTK)
+		</div>
+		<div class="mb-3">
+			<fieldset>
+				<legend>Board Members</legend>
+				<div class="row">
+					<div class="col-sm-6">
+						<input type="text" class="form-control" placeholder="Name" aria-label="Name">
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" placeholder="Affiliation" aria-label="Affiliation">
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="mb-3">
+			<label for="orgCeoName" class="form-label">CEO / Administrative Lead</label>
+			<input type="text" name='orgCeoName' id='orgCeoName' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="orgOperatingBudget" class="form-label">Operating Budget</label>
+			<input type="text" name='orgOperatingBudget' id='orgOperatingBudget' class="form-control">
+		</div>
+		<div class="mb-3 form-check">
+			<input type="checkbox" class="form-check-input" name="orgIsLobbying" id="orgIsLobbying">
+			<label class="form-check-label" for="orgIsLobbying">We engage in lobbying activities</label>
+		</div>
+		<div class="mb-3">
+			<label for="orgStartDate" class="form-label">Organization Start Date</label>
+			<input type="text" name='orgStartDate' id='orgStartDate' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="orgWorkLocations" class="form-label">Work Locations</label>
+			TKTKTKTK
+		</div>
+		<div class="mb-3">
+			<label for="orgFinancialStatements" class="form-label">Financial Statements</label>
+			TKTKTKTK
+		</div>
+		<div class="mb-3">
+			<label for="orgSignatory" class="form-label">Grant Agreement Signatory</label>
+			<input type="text" name='orgSignatory' id='orgSignatory' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="orgFiscalEndDate" class="form-label">Organization Fiscal End Date</label>
+			<input type="text" name='orgFiscalEndDate' id='orgFiscalEndDate' class="form-control">
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Proposal</legend>
+		<div class="mb-3">
+			<label for="proposalName" class="form-label">Project Title</label>
+			<input type="text" name='proposalName' id='proposalName' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="proposalContact" class="form-label">Primary Contact Name</label>
+			<input type="text" name='proposalContactName' id='proposalContactName' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="proposalRequestedBudget" class="form-label">Requested Budget</label>
+			<input type="text" name='proposalRequestedBudget' id='proposalRequestedBudget' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="proposalStartDate" class="form-label">Investment Start Date</label>
+			<input type="text" name='proposalStartDate' id='proposalStartDate' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="proposalEndDate" class="form-label">Investment End Date</label>
+			<input type="text" name='proposalEndDate' id='proposalEndDate' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="proposalTotalBudget" class="form-label">Project Title</label>
+			<input type="text" name='proposalTotalBudget' id='proposalTotalBudget' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="proposalFiscalSponsor" class="form-label">Fiscal Sponsor Organization</label>
+			<input type="text" name='proposalFiscalSponsor' id='proposalFiscalSponsor' class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="proposalDescription" class="form-label">Executive Summary</label>
+			<textarea name='proposalDescription' id='proposalDescription' class="form-control"></textarea>
+		</div>
+	</fieldset>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
