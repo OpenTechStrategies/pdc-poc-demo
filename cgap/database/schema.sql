@@ -1,6 +1,8 @@
 DROP TABLE IF EXISTS organizations;
 DROP TABLE IF EXISTS proposals;
 DROP TABLE IF EXISTS board_members;
+DROP TABLE IF EXISTS documents;
+DROP TABLE IF EXISTS geographic_areas;
 
 CREATE TABLE organizations (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -16,11 +18,11 @@ CREATE TABLE organizations (
 	ceo_name TEXT NOT NULL,
 	ceo_title TEXT NOT NULL,
 	ceo_address TEXT NOT NULL,
-	operating_budget DECIMAL(16,2) NOT NULL,
+	operating_budget TEXT NOT NULL,
 	is_lobbying BOOLEAN NOT NULL,
 	start_date TEXT NOT NULL,
 	grant_agreement_signatory TEXT NOT NULL,
-	fiscal_end_date DATE NOT NULL
+	fiscal_end_date TEXT NOT NULL
 );
 
 CREATE TABLE proposals (
@@ -55,7 +57,7 @@ CREATE TABLE documents (
 	FOREIGN KEY (organization_id) REFERENCES user (organization)
 );
 
-CREATE TABLE geographic_area (
+CREATE TABLE geographic_areas (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	organization_id INTEGER NOT NULL,
 	name TEXT NOT NULL,

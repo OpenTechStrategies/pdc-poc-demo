@@ -17,7 +17,7 @@ $ pipenv install
 Then set up the database via:
 
 ```
-pipenv run flask init-db
+pipenv run flask init-db --seed
 ```
 
 ## Running
