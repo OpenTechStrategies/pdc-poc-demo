@@ -6,7 +6,9 @@
     <title>{% block title %}{% endblock %} - CGAP</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='lib/css/bootstrap.min.css') }}">
-    <script type="text/javascript" src="{{ url_for('static', filename='lib/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/js/vue.min.js') }}"></script>
+    {% block head %}{% endblock %}
   </head>
   <body>
     <div class="container">
