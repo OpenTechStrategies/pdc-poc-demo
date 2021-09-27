@@ -153,3 +153,11 @@ def updateOrganization(organization_id):
         'api.getOrganizationById',
         organization_id=organization_id
     ))
+
+@bp.route('/proposals/', methods=['GET'])
+def getProposals():
+    db = get_db()
+    proposals = db.execute(
+        'SELECT * FROM proposals',
+    ).fetchall()
+    return json.dumps([tuple(proposal) for proposal in proposals])
