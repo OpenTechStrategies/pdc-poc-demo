@@ -159,6 +159,36 @@ app.component('AutofillForm', {
     }
   },
 
+  methods: {
+    updateOrganization(organization) {
+      var request = new XMLHttpRequest();
+      var formData = new FormData();
+      for ( var key in organization ) {
+        formData.append(key, organization[key]);
+      }
+      request.open('POST', '/api/organizations/' + organization.id, true);
+      request.send(formData);
+    },
+
+    createOrganization(organization) {
+      var request = new XMLHttpRequest();
+      var formData = new FormData();
+      for ( var key in organization ) {
+        formData.append(key, organization[key]);
+      }
+      request.open('POST', '/api/organizations', true);
+      request.send(formData);
+    },
+
+    submitForm() {
+      if (this.organization.id !== 0) {
+        this.updateOrganization(this.organization)
+      } else {
+        this.createOrganization(this.organization)
+      }
+    }
+  },
+
   template: `
 <fieldset>
 <legend>Organization</legend>
@@ -287,6 +317,7 @@ app.component('AutofillForm', {
   <textarea name='proposalDescription' id='proposalDescription' class="form-control"></textarea>
 </div>
 </fieldset>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary"
+  @click.prevent="submitForm">Submit</button>
 `
 })
