@@ -170,9 +170,21 @@ app.component('AutofillForm', {
       request.send(formData);
     },
 
+    createOrganization(organization) {
+      var request = new XMLHttpRequest();
+      var formData = new FormData();
+      for ( var key in organization ) {
+        formData.append(key, organization[key]);
+      }
+      request.open('POST', '/api/organizations', true);
+      request.send(formData);
+    },
+
     submitForm() {
       if (this.organization.id !== 0) {
         this.updateOrganization(this.organization)
+      } else {
+        this.createOrganization(this.organization)
       }
     }
   },
