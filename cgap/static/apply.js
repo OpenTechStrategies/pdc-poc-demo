@@ -145,7 +145,7 @@ app.component('AutofillForm', {
         'ceo_title': '',
         'ceo_address': '',
         'operating_budget': '',
-        'is_lobbying': '',
+        'is_lobbying': 'false',
         'start_date': '',
         'grant_agreement_signatory': '',
         'fiscal_end_date': '',
@@ -229,8 +229,7 @@ app.component('AutofillForm', {
 </div>
 <div class="mb-3">
   <label for="orgMissionStatement" class="form-label">Organization Mission</label>
-  <textarea name='orgMissionStatement' id='orgMissionStatement' class="form-control" aria-describedby="orgMissionStatementHelp"></textarea>
-  <div id="orgMissionStatementHelp" class="form-text">A sample description.</div>
+  <textarea v-model='organization.mission_statement' name='orgMissionStatement' id='orgMissionStatement' class="form-control"></textarea>
 </div>
 <div class="mb-3">
   <label for="orgWebsite" class="form-label">Organization Website</label>
@@ -261,7 +260,7 @@ app.component('AutofillForm', {
 </div>
 <div class="mb-3">
   <label for="orgDba" class="form-label">Organization DBA</label>
-  <linked-autofill-input v-model="organization" field="dba" name='orgDba' id='orgDba'></linked-autofill-input>
+  <linked-autofill-input v-model="organization" field="dba_name" name='orgDba' id='orgDba'></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgDba" class="form-label">Legal Documents</label>
@@ -289,7 +288,7 @@ app.component('AutofillForm', {
   <input type="text" name='orgOperatingBudget' id='orgOperatingBudget' class="form-control">
 </div>
 <div class="mb-3 form-check">
-  <input type="checkbox" class="form-check-input" name="orgIsLobbying" id="orgIsLobbying">
+  <input v-model="organization.is_lobbying" type="checkbox" class="form-check-input" name="orgIsLobbying" id="orgIsLobbying">
   <label class="form-check-label" for="orgIsLobbying">We engage in lobbying activities</label>
 </div>
 <div class="mb-3">
