@@ -20,7 +20,7 @@ Then set up the database via:
 pipenv run flask init-db --seed
 ```
 
-## Running
+## Running Locally
 
 Once you have set up your environment you can run the project via flask:
 
@@ -28,3 +28,9 @@ Once you have set up your environment you can run the project via flask:
 $ export FLASK_APP=cgap
 $ pipenv run flask run
 ```
+
+
+## Running on Production
+
+This project has a WSGI entry point if you want to use something like [gunicorn](https://flask.palletsprojects.com/en/2.0.x/deploying/wsgi-standalone/#gunicorn).
+
