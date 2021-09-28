@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='review.js') }}"></script>
+{% endblock %}
+
+{% block title %}Review Proposals{% endblock %}
+
+{% block content %}
+<div id="app">
+  <h1>Review Proposals</h1>
+  <proposal-search></proposal-search>
+</div>
+<script type="text/javascript">
+app.mount('#app')
+</script>
+{% endblock %}
