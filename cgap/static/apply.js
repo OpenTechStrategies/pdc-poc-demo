@@ -186,7 +186,6 @@ app.component('AutofillForm', {
       request.onreadystatechange = function() {
         if (request.readyState == XMLHttpRequest.DONE) {
           newOrganization = JSON.parse(this.response);
-          console.log(newOrganization);
           context.organization.id = newOrganization[0];
           cb();
         }
@@ -194,27 +193,36 @@ app.component('AutofillForm', {
       request.send(formData);
     },
 
-    createProposal(proposal, organizationId) {
+    createProposal(proposal, organizationId, cb) {
       var request = new XMLHttpRequest();
       var formData = new FormData();
       for ( var key in proposal ) {
         formData.append(key, proposal[key]);
       }
       formData.append('organization_id', organizationId)
-      console.log(formData)
-      console.log(proposal)
-      console.log(organizationId)
       request.open('POST', '/api/proposals', true);
+      const context = this;
+      request.onreadystatechange = function() {
+        if (request.readyState == XMLHttpRequest.DONE) {
+          newProposal = JSON.parse(this.response);
+          context.proposal.id = newProposal[0];
+          cb();
+        }
+      }
       request.send(formData);
+    },
+
+    redirectToProposalView() {
+      window.location.href = `/ux/review/${this.proposal.id}`
     },
 
     submitForm() {
       if (this.organization.id !== 0) {
         this.updateOrganization(this.organization)
-        this.createProposal(this.proposal, this.organization.id)
+        this.createProposal(this.proposal, this.organization.id, this.redirectToProposalView)
       } else {
         this.createOrganization(this.organization, () => {
-          this.createProposal(this.proposal, this.organization.id)
+          this.createProposal(this.proposal, this.organization.id, this.redirectToProposalView)
         })
       }
     }
