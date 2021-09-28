@@ -160,4 +160,4 @@ def getProposals():
     proposals = db.execute(
         'SELECT * FROM proposals',
     ).fetchall()
-    return json.dumps([tuple(proposal) for proposal in proposals])
+    return json.dumps([tuple(proposal) for proposal in proposals], default=str)
