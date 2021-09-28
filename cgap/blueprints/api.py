@@ -158,7 +158,12 @@ def updateOrganization(organization_id):
 def getProposals():
     db = get_db()
     proposals = db.execute(
-        'SELECT * FROM proposals',
+        '''
+        SELECT proposals.*,
+               organizations.*
+          FROM proposals
+          JOIN organizations ON (organizations.id = proposals.organization_id)
+        ''',
     ).fetchall()
     return json.dumps([tuple(proposal) for proposal in proposals], default=str)
 
@@ -167,7 +172,13 @@ def getProposals():
 def getProposalById(proposal_id):
     db = get_db()
     proposal = db.execute(
-        'SELECT * FROM proposals WHERE id=?',
+        '''
+        SELECT proposals.*,
+               organizations.*
+          FROM proposals
+          JOIN organizations ON (organizations.id = proposals.organization_id)
+         WHERE proposals.id=?
+        ''',
         [proposal_id]
     ).fetchone()
     return json.dumps(tuple(proposal), default=str)
