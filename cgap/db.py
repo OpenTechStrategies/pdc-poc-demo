@@ -43,7 +43,7 @@ def load_organization_seed():
                 'ceo_title': '',
                 'ceo_address': '',
                 'operating_budget': organization_row[13],
-                'is_lobbying': bool(organization_row[14]),
+                'is_lobbying': organization_row[14],
                 'start_date': organization_row[15],
                 'grant_agreement_signatory': organization_row[18],
                 'fiscal_end_date': organization_row[19],
