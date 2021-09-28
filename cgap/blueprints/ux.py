@@ -16,3 +16,8 @@ def apply():
 def review():
     return render_template('review.html')
 
+
+
+@bp.route('/review/<int:proposal_id>', methods=('GET', 'POST'))
+def view(proposal_id):
+    return render_template('view.html', proposal_id=proposal_id)
