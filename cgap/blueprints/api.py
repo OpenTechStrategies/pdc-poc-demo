@@ -172,3 +172,41 @@ def getProposalById(proposal_id):
     ).fetchone()
     return json.dumps(tuple(proposal), default=str)
 
+
+@bp.route('/proposals/', methods=['POST'])
+def createProposal():
+    query_data = [
+        request.form.get('organization_id'),
+        request.form.get('primary_contact_name'),
+        request.form.get('requested_budget'),
+        request.form.get('investment_start_date'),
+        request.form.get('investment_end_date'),
+        request.form.get('total_budget'),
+        request.form.get('fiscal_sponsor_name'),
+        request.form.get('description'),
+    ]
+    insert_query = '''
+    INSERT INTO proposals (
+        organization_id,
+        primary_contact_name,
+        requested_budget,
+        investment_start_date,
+        investment_end_date,
+        total_budget,
+        fiscal_sponsor_name,
+        description
+    ) VALUES (?,?,?,?,?,?,?,?)'''
+
+    db = get_db()
+    cursor = db.cursor()
+    try:
+        cursor.execute(insert_query, query_data)
+        db.commit()
+
+    except sqlite3.Error as er:
+        print('SQLite error: %s' % (' '.join(er.args)))
+
+    return redirect(url_for(
+        'api.getProposalById',
+        proposal_id=cursor.lastrowid
+    ))
