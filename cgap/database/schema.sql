@@ -19,7 +19,7 @@ CREATE TABLE organizations (
 	ceo_title TEXT NOT NULL,
 	ceo_address TEXT NOT NULL,
 	operating_budget TEXT NOT NULL,
-	is_lobbying BOOLEAN NOT NULL,
+	is_lobbying TEXT NOT NULL,
 	start_date TEXT NOT NULL,
 	grant_agreement_signatory TEXT NOT NULL,
 	fiscal_end_date TEXT NOT NULL
