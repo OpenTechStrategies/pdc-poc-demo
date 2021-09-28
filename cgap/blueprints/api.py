@@ -41,7 +41,6 @@ def createOrganization():
     ]
     db = get_db()
     cursor = db.cursor()
-    print(query_data)
     organization = cursor.execute(
         '''
         INSERT INTO organizations
@@ -154,6 +153,7 @@ def updateOrganization(organization_id):
         organization_id=organization_id
     ))
 
+
 @bp.route('/proposals/', methods=['GET'])
 def getProposals():
     db = get_db()
@@ -161,3 +161,14 @@ def getProposals():
         'SELECT * FROM proposals',
     ).fetchall()
     return json.dumps([tuple(proposal) for proposal in proposals], default=str)
+
+
+@bp.route('/proposals/<int:proposal_id>', methods=['GET'])
+def getProposalById(proposal_id):
+    db = get_db()
+    proposal = db.execute(
+        'SELECT * FROM proposals WHERE id=?',
+        [proposal_id]
+    ).fetchone()
+    return json.dumps(tuple(proposal), default=str)
+
