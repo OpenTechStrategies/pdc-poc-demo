@@ -94,6 +94,50 @@ def load_organization_seed():
             except sqlite3.Error as er:
                 print('SQLite error: %s' % (' '.join(er.args)))
 
+def load_proposal_seed():
+    db = get_db()
+
+    with current_app.open_resource('database/seeds/proposal.csv') as f:
+        proposal_reader = csv.reader(TextIOWrapper(f))
+        for proposal_row in proposal_reader:
+            proposal = {
+                'organization_id': proposal_row[1],
+                'primary_contact_name': proposal_row[3],
+                'requested_budget': proposal_row[4],
+                'investment_start_date': proposal_row[5],
+                'investment_end_date': proposal_row[6],
+                'total_budget': proposal_row[7],
+                'fiscal_sponsor_name': proposal_row[8],
+                'description': proposal_row[9],
+            }
+            insert_query = '''
+            INSERT INTO proposals (
+                organization_id,
+                primary_contact_name,
+                requested_budget,
+                investment_start_date,
+                investment_end_date,
+                total_budget,
+                fiscal_sponsor_name,
+                description
+            ) VALUES (?,?,?,?,?,?,?,?)'''
+
+            try:
+                db.execute(insert_query, [
+                    proposal.get('organization_id'),
+                    proposal.get('primary_contact_name'),
+                    proposal.get('requested_budget'),
+                    proposal.get('investment_start_date'),
+                    proposal.get('investment_end_date'),
+                    proposal.get('total_budget'),
+                    proposal.get('fiscal_sponsor_name'),
+                    proposal.get('description'),
+                ])
+                db.commit()
+
+            except sqlite3.Error as er:
+                print('SQLite error: %s' % (' '.join(er.args)))
+
 def init_db():
     db = get_db()
 
@@ -102,6 +146,7 @@ def init_db():
 
 def seed_db():
     load_organization_seed()
+    load_proposal_seed()
 
 @click.command('init-db')
 @click.option('--seed/--no-seed', default=False)
