@@ -1,10 +1,4 @@
-const app = Vue.createApp({
-  data() {
-    return {
-      organizationsApi: '/api/organizations',
-    }
-  },
-});
+const app = Vue.createApp({});
 
 app.component('LinkedAutofillInput', {
   props: ['field', 'modelValue'],
@@ -156,6 +150,17 @@ app.component('AutofillForm', {
         'grant_agreement_signatory': '',
         'fiscal_end_date': '',
       },
+      proposal: {
+        'id': '',
+        'created': '',
+        'primary_contact_name': '',
+        'requested_budget': '',
+        'investment_start_date': '',
+        'investment_end_date': '',
+        'total_budget': '',
+        'fiscal_sponsor_name': '',
+        'description': '',
+      },
     }
   },
 
@@ -170,21 +175,47 @@ app.component('AutofillForm', {
       request.send(formData);
     },
 
-    createOrganization(organization) {
+    createOrganization(organization, cb) {
       var request = new XMLHttpRequest();
       var formData = new FormData();
       for ( var key in organization ) {
         formData.append(key, organization[key]);
       }
       request.open('POST', '/api/organizations', true);
+      const context = this;
+      request.onreadystatechange = function() {
+        if (request.readyState == XMLHttpRequest.DONE) {
+          newOrganization = JSON.parse(this.response);
+          console.log(newOrganization);
+          context.organization.id = newOrganization[0];
+          cb();
+        }
+      }
+      request.send(formData);
+    },
+
+    createProposal(proposal, organizationId) {
+      var request = new XMLHttpRequest();
+      var formData = new FormData();
+      for ( var key in proposal ) {
+        formData.append(key, proposal[key]);
+      }
+      formData.append('organization_id', organizationId)
+      console.log(formData)
+      console.log(proposal)
+      console.log(organizationId)
+      request.open('POST', '/api/proposals', true);
       request.send(formData);
     },
 
     submitForm() {
       if (this.organization.id !== 0) {
         this.updateOrganization(this.organization)
+        this.createProposal(this.proposal, this.organization.id)
       } else {
-        this.createOrganization(this.organization)
+        this.createOrganization(this.organization, () => {
+          this.createProposal(this.proposal, this.organization.id)
+        })
       }
     }
   },
@@ -285,36 +316,32 @@ app.component('AutofillForm', {
 <fieldset>
 <legend>Proposal</legend>
 <div class="mb-3">
-  <label for="proposalName" class="form-label">Project Title</label>
-  <input type="text" name='proposalName' id='proposalName' class="form-control">
-</div>
-<div class="mb-3">
   <label for="proposalContact" class="form-label">Primary Contact Name</label>
-  <input type="text" name='proposalContactName' id='proposalContactName' class="form-control">
+  <input type="text" v-model='proposal.primary_contact_name' name='proposalContactName' id='proposalContactName' class="form-control">
 </div>
 <div class="mb-3">
   <label for="proposalRequestedBudget" class="form-label">Requested Budget</label>
-  <input type="text" name='proposalRequestedBudget' id='proposalRequestedBudget' class="form-control">
+  <input type="text" v-model='proposal.requested_budget' name='proposalRequestedBudget' id='proposalRequestedBudget' class="form-control">
 </div>
 <div class="mb-3">
   <label for="proposalStartDate" class="form-label">Investment Start Date</label>
-  <input type="text" name='proposalStartDate' id='proposalStartDate' class="form-control">
+  <input type="text" v-model='proposal.investment_start_date' name='proposalStartDate' id='proposalStartDate' class="form-control">
 </div>
 <div class="mb-3">
   <label for="proposalEndDate" class="form-label">Investment End Date</label>
-  <input type="text" name='proposalEndDate' id='proposalEndDate' class="form-control">
+  <input type="text" v-model='proposal.investment_end_date' name='proposalEndDate' id='proposalEndDate' class="form-control">
 </div>
 <div class="mb-3">
-  <label for="proposalTotalBudget" class="form-label">Project Title</label>
-  <input type="text" name='proposalTotalBudget' id='proposalTotalBudget' class="form-control">
+  <label for="proposalTotalBudget" class="form-label">Total Project Budget</label>
+  <input type="text" v-model='proposal.total_budget' name='proposalTotalBudget' id='proposalTotalBudget' class="form-control">
 </div>
 <div class="mb-3">
   <label for="proposalFiscalSponsor" class="form-label">Fiscal Sponsor Organization</label>
-  <input type="text" name='proposalFiscalSponsor' id='proposalFiscalSponsor' class="form-control">
+  <input type="text" v-model='proposal.fiscal_sponsor_name' name='proposalFiscalSponsor' id='proposalFiscalSponsor' class="form-control">
 </div>
 <div class="mb-3">
   <label for="proposalDescription" class="form-label">Executive Summary</label>
-  <textarea name='proposalDescription' id='proposalDescription' class="form-control"></textarea>
+  <textarea v-model='proposal.description' name='proposalDescription' id='proposalDescription' class="form-control"></textarea>
 </div>
 </fieldset>
 <button type="submit" class="btn btn-primary"
