@@ -87,6 +87,9 @@ app.component('ProposalSearch', {
     },
     handleInput(event) {
       this.fetchProposals(event.target.value);
+    },
+    generateViewUrl(id) {
+      return `/ux/review/${id}`;
     }
   },
 
@@ -104,6 +107,7 @@ app.component('ProposalSearch', {
     <div class="col-12">
       <h2>{{ match.organization_name }} ({{ match.organization_registration_number }})</h2>
       {{ match.description }}
+      <div><a :href='generateViewUrl(match.id)'>(view)</a></div>
     </div>
   </div>
 </div>
