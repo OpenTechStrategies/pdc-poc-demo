@@ -12,3 +12,7 @@ bp = Blueprint('ux', __name__, url_prefix='/ux')
 def apply():
     return render_template('apply.html')
 
+@bp.route('/review', methods=('GET', 'POST'))
+def review():
+    return render_template('review.html')
+
