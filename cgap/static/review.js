@@ -22,7 +22,7 @@ app.component('ProposalSearch', {
 
       // We want to filter here as well to prevent common UX lag between API requests
       return this.matches.filter((match) => {
-        return hasMatch(match['organization_name'], this.inputValue)
+        return hasMatch(match.organization.name, this.inputValue)
         || hasMatch(match['description'], this.inputValue);
       });
     },
@@ -44,37 +44,7 @@ app.component('ProposalSearch', {
         request.onload = function() {
           if (this.status >= 200 && this.status < 400) {
             const results = JSON.parse(this.response);
-            context.matches = results.map((row) => {
-              return {
-                'id': row[0],
-                'organization_id': row[1],
-                'created': row[2],
-                'primary_contact_name': row[3],
-                'requested_budget': row[4],
-                'investment_start_date': row[5],
-                'investment_end_date': row[6],
-                'total_budget': row[7],
-                'fiscal_sponsor_name': row[8],
-                'description': row[9],
-                'organization_name': row[11],
-                'organization_mission_statement': row[12],
-                'organization_website': row[13],
-                'organization_entity_type': row[14],
-                'organization_registration_number': row[15],
-                'organization_address': row[16],
-                'organization_phone': row[17],
-                'organization_email': row[18],
-                'organization_dba_name': row[19],
-                'organization_ceo_name': row[20],
-                'organization_ceo_title': row[21],
-                'organization_ceo_address': row[22],
-                'organization_operating_budget': row[23],
-                'organization_is_lobbying': row[24],
-                'organization_start_date': row[25],
-                'organization_grant_agreement_signatory': row[26],
-                'organization_fiscal_end_date': row[27],
-              }
-            });
+            context.matches = results;
           }
         };
 
@@ -105,7 +75,7 @@ app.component('ProposalSearch', {
 <div>
   <div v-for="match in filteredMatches" class="proposal row">
     <div class="col-12">
-      <h2>{{ match.organization_name }} ({{ match.organization_registration_number }})</h2>
+      <h2>{{ match.organization.name }} ({{ match.organization.registration_number }})</h2>
       {{ match.description }}
       <div><a :href='generateViewUrl(match.id)'>(view)</a></div>
     </div>
