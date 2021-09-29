@@ -1,11 +1,64 @@
 import sqlite3
 import csv
 from io import TextIOWrapper
-
+from peewee import *
 import click
 from flask import current_app, g
 from flask.cli import with_appcontext
 
+DATABASE = 'instance/cgap.sqlite'
+database = SqliteDatabase(DATABASE)
+
+class BaseModel(Model):
+    class Meta:
+        database = database
+
+
+class Organization(BaseModel):
+    id = AutoField()
+    name = TextField()
+    mission_statement = TextField()
+    website = TextField()
+    entity_type = TextField()
+    registration_number = TextField()
+    address = TextField()
+    phone = TextField()
+    email = TextField()
+    dba_name = TextField()
+    ceo_name = TextField()
+    ceo_title = TextField()
+    ceo_address = TextField()
+    operating_budget = TextField()
+    is_lobbying = TextField()
+    start_date = TextField()
+    grant_agreement_signatory = TextField()
+    fiscal_end_date = TextField()
+
+
+class Proposal(BaseModel):
+    id = AutoField()
+    organization = ForeignKeyField(Organization, backref='proposals')
+    created = TimestampField()
+    primary_contact_name = TextField()
+    requested_budget = TextField()
+    investment_start_date = TextField()
+    investment_end_date = TextField()
+    total_budget = TextField()
+    fiscal_sponsor_name = TextField()
+    description = TextField()
+
+MODELS = [
+    Organization,
+    Proposal,
+]
+
+def create_tables():
+    with database:
+        database.create_tables(MODELS)
+
+def drop_tables():
+    with database:
+        database.drop_tables(MODELS)
 
 def get_db():
     if 'db' not in g:
