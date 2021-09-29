@@ -10,7 +10,25 @@ app.component('Proposal', {
     return {
       proposal: {
         'id': '',
-        'organization_id': '',
+        'organization': {
+          'name': '',
+          'mission_statement': '',
+          'website': '',
+          'entity_type': '',
+          'registration_number': '',
+          'address': '',
+          'phone': '',
+          'email': '',
+          'dba_name': '',
+          'ceo_name': '',
+          'ceo_title': '',
+          'ceo_address': '',
+          'operating_budget': '',
+          'is_lobbying': '',
+          'start_date': '',
+          'grant_agreement_signatory': '',
+          'fiscal_end_date': '',
+        },
         'created': '',
         'primary_contact_name': '',
         'requested_budget': '',
@@ -19,23 +37,6 @@ app.component('Proposal', {
         'total_budget': '',
         'fiscal_sponsor_name': '',
         'description': '',
-        'organization_name': '',
-        'organization_mission_statement': '',
-        'organization_website': '',
-        'organization_entity_type': '',
-        'organization_registration_number': '',
-        'organization_address': '',
-        'organization_phone': '',
-        'organization_email': '',
-        'organization_dba_name': '',
-        'organization_ceo_name': '',
-        'organization_ceo_title': '',
-        'organization_ceo_address': '',
-        'organization_operating_budget': '',
-        'organization_is_lobbying': '',
-        'organization_start_date': '',
-        'organization_grant_agreement_signatory': '',
-        'organization_fiscal_end_date': '',
       },
     }
   },
@@ -53,36 +54,7 @@ app.component('Proposal', {
         var context = this
         request.onload = function() {
           if (this.status >= 200 && this.status < 400) {
-            const row = JSON.parse(this.response);
-            context.proposal = {
-              'id': row[0],
-              'organization_id': row[1],
-              'created': row[2],
-              'primary_contact_name': row[3],
-              'requested_budget': row[4],
-              'investment_start_date': row[5],
-              'investment_end_date': row[6],
-              'total_budget': row[7],
-              'fiscal_sponsor_name': row[8],
-              'description': row[9],
-              'organization_name': row[11],
-              'organization_mission_statement': row[12],
-              'organization_website': row[13],
-              'organization_entity_type': row[14],
-              'organization_registration_number': row[15],
-              'organization_address': row[16],
-              'organization_phone': row[17],
-              'organization_email': row[18],
-              'organization_dba_name': row[19],
-              'organization_ceo_name': row[20],
-              'organization_ceo_title': row[21],
-              'organization_ceo_address': row[22],
-              'organization_operating_budget': row[23],
-              'organization_is_lobbying': row[24],
-              'organization_start_date': row[25],
-              'organization_grant_agreement_signatory': row[26],
-              'organization_fiscal_end_date': row[27],
-            };
+            context.proposal = JSON.parse(this.response);
           }
         };
 
@@ -111,63 +83,63 @@ app.component('Proposal', {
 <tbody>
   <tr>
     <th scope="row">Organization Name</th>
-    <td>{{proposal.organization_name}}</td>
+    <td>{{proposal.organization.name}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Mission Statement</th>
-    <td>{{proposal.organization_mission_statement}}</td>
+    <td>{{proposal.organization.mission_statement}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Website</th>
-    <td>{{proposal.organization_website}}</td>
+    <td>{{proposal.organization.website}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Entity Type</th>
-    <td>{{proposal.organization_entity_type}}</td>
+    <td>{{proposal.organization.entity_type}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Registration Number</th>
-    <td>{{proposal.organization_registration_number}}</td>
+    <td>{{proposal.organization.registration_number}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Address</th>
-    <td>{{proposal.organization_address}}</td>
+    <td>{{proposal.organization.address}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Phone</th>
-    <td>{{proposal.organization_phone}}</td>
+    <td>{{proposal.organization.phone}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Email</th>
-    <td>{{proposal.organization_email}}</td>
+    <td>{{proposal.organization.email}}</td>
   </tr>
   <tr>
     <th scope="row">Organization DBA</th>
-    <td>{{proposal.organization_dba_name}}</td>
+    <td>{{proposal.organization.dba_name}}</td>
   </tr>
   <tr>
     <th scope="row">Organization CEO</th>
-    <td>{{proposal.organization_ceo_name}}</td>
+    <td>{{proposal.organization.ceo_name}}</td>
   </tr>
   <tr>
     <th scope="row">Operating Budget</th>
-    <td>{{proposal.organization_operating_budget}}</td>
+    <td>{{proposal.organization.operating_budget}}</td>
   </tr>
   <tr>
     <th scope="row">Lobbying Activity</th>
-    <td>{{proposal.organization_is_lobbying}}</td>
+    <td>{{proposal.organization.is_lobbying}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Start Date</th>
-    <td>{{proposal.organization_start_date}}</td>
+    <td>{{proposal.organization.start_date}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Signatory</th>
-    <td>{{proposal.organization_grant_agreement_signatory}}</td>
+    <td>{{proposal.organization.grant_agreement_signatory}}</td>
   </tr>
   <tr>
     <th scope="row">Organization Fiscal End Date</th>
-    <td>{{proposal.organization_fiscal_end_date}}</td>
+    <td>{{proposal.organization.fiscal_end_date}}</td>
   </tr>
 </tbody>
 </table>

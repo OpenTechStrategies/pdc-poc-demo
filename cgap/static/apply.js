@@ -56,28 +56,7 @@ app.component('LinkedAutofillInput', {
         request.onload = function() {
           if (this.status >= 200 && this.status < 400) {
             const results = JSON.parse(this.response);
-            context.matches = results.map((row) => {
-              return {
-                'id': row[0],
-                'name': row[1],
-                'mission_statement': row[2],
-                'website': row[3],
-                'entity_type': row[4],
-                'registration_number': row[5],
-                'address': row[6],
-                'phone': row[7],
-                'email': row[8],
-                'dba_name': row[9],
-                'ceo_name': row[10],
-                'ceo_title': row[11],
-                'ceo_address': row[12],
-                'operating_budget': row[13],
-                'is_lobbying': row[14],
-                'start_date': row[15],
-                'grant_agreement_signatory': row[16],
-                'fiscal_end_date': row[17],
-              }
-            });
+            context.matches = results;
           }
         };
 
@@ -93,7 +72,6 @@ app.component('LinkedAutofillInput', {
     },
     makeSelection(selection) {
       this.$emit('update:modelValue', selection)
-      console.log(this.modelValue);
     },
     updateModel(updatedValue) {
       this.$emit('update:modelValue', updatedValue)
@@ -171,6 +149,7 @@ app.component('AutofillForm', {
       for ( var key in organization ) {
         formData.append(key, organization[key]);
       }
+      console.log("UPDATING ORGANIZATION");
       request.open('POST', '/api/organizations/' + organization.id, true);
       request.send(formData);
     },
@@ -186,7 +165,7 @@ app.component('AutofillForm', {
       request.onreadystatechange = function() {
         if (request.readyState == XMLHttpRequest.DONE) {
           newOrganization = JSON.parse(this.response);
-          context.organization.id = newOrganization[0];
+          context.organization.id = newOrganization.id;
           cb();
         }
       }
@@ -205,7 +184,7 @@ app.component('AutofillForm', {
       request.onreadystatechange = function() {
         if (request.readyState == XMLHttpRequest.DONE) {
           newProposal = JSON.parse(this.response);
-          context.proposal.id = newProposal[0];
+          context.proposal.id = newProposal.id;
           cb();
         }
       }
