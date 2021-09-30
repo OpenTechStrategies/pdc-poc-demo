@@ -1,6 +1,9 @@
 # Proof-of-Concept Demo: Common Grant Application for Philanthropy (CGAP) -- Common Data Platform
 
-This is a demonstration project to show what a common grant application for philanthropy might look like.
+This is a demonstration project to show what a common grant
+application for philanthropy might look like.  See the [use cases
+documentation](docs/USE_CASES.md) for more details about what this
+demo shows and why.
 
 This is NOT meant to run in production (APIs are public and data can be deleted any time).
 
