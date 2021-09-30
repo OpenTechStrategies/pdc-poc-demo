@@ -59,7 +59,7 @@ app.component('ProposalSearch', {
       this.fetchProposals(event.target.value);
     },
     generateViewUrl(id) {
-      return `/ux/review/${id}`;
+      return `/proposal/${id}`;
     }
   },
 
