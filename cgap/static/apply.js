@@ -212,15 +212,33 @@ app.component('AutofillForm', {
 <legend>Organization</legend>
 <div class="mb-3">
   <label for="orgName" class="form-label">Organization Name</label>
-  <linked-autofill-input v-model="organization" field="name" name='orgName' id='orgName'></linked-autofill-input>
+  <linked-autofill-input
+    v-model='organization'
+    field='name'
+    name='orgName'
+    id='orgName'
+    placeholder='name'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgMissionStatement" class="form-label">Organization Mission</label>
-  <textarea v-model='organization.mission_statement' name='orgMissionStatement' id='orgMissionStatement' class="form-control"></textarea>
+  <textarea
+    v-model='organization.mission_statement'
+    name='orgMissionStatement'
+    id='orgMissionStatement'
+    class='form-control'
+    placeholder='mission'
+    ></textarea>
 </div>
 <div class="mb-3">
   <label for="orgWebsite" class="form-label">Organization Website</label>
-  <linked-autofill-input v-model="organization" field="website" name='orgWebsite' id='orgWebsite'></linked-autofill-input>
+  <linked-autofill-input
+    v-model='organization'
+    field='website'
+    name='orgWebsite'
+    id='orgWebsite'
+    placeholder='website'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgEntityType" class="form-label">Entity Type</label>
@@ -230,49 +248,75 @@ app.component('AutofillForm', {
 </div>
 <div class="mb-3">
   <label for="orgRegistrationNumber" class="form-label">Registration Number</label>
-  <linked-autofill-input v-model="organization" field="registration_number" name='orgRegistrationNumber' id='orgRegistrationNumber' aria-describedby="orgRegistrationNumberHelp"></linked-autofill-input>
+  <linked-autofill-input
+    v-model='organization'
+    field='registration_number'
+    name='orgRegistrationNumber'
+    id='orgRegistrationNumber'
+    aria-describedby='orgRegistrationNumberHelp'
+    placeholder='EIN'
+    ></linked-autofill-input>
   <div id="orgRegistrationNumberHelp" class="form-text">(e.g. EIN / TIN)</div>
 </div>
 <div class="mb-3">
   <label for="orgAddress" class="form-label">Organization Address</label>
-  <linked-autofill-input v-model="organization" field="address" name='orgAddress' id='orgAddress'></linked-autofill-input>
+  <linked-autofill-input
+    v-model='organization'
+    field='address'
+    name='orgAddress'
+    id='orgAddress'
+    placeholder='address'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgPhone" class="form-label">Organization Phone</label>
-  <linked-autofill-input v-model="organization" field="phone" name='orgPhone' id='orgPhone'></linked-autofill-input>
+  <linked-autofill-input
+    v-model='organization'
+    field='phone'
+    name='orgPhone'
+    id='orgPhone'
+    placeholder='phone'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgEmail" class="form-label">Organization Email</label>
-  <linked-autofill-input v-model="organization" field="email" name='orgEmail' id='orgEmail'></linked-autofill-input>
+  <linked-autofill-input
+    v-model='organization'
+    field='email'
+    name='orgEmail'
+    id='orgEmail'
+    placeholder='email'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgDba" class="form-label">Organization DBA</label>
-  <linked-autofill-input v-model="organization" field="dba_name" name='orgDba' id='orgDba'></linked-autofill-input>
-</div>
-<div class="mb-3">
-  <label for="orgDba" class="form-label">Legal Documents</label>
-  (To be implemented...)
-</div>
-<div class="mb-3">
-  <fieldset>
-    <legend>Board Members</legend>
-    <div class="row">
-      <div class="col-sm-6">
-        <input type="text" class="form-control" placeholder="Name" aria-label="Name">
-      </div>
-      <div class="col-sm-6">
-        <input type="text" class="form-control" placeholder="Affiliation" aria-label="Affiliation">
-      </div>
-    </div>
-  </fieldset>
+  <linked-autofill-input
+    v-model='organization'
+    field='dba_name'
+    name='orgDba'
+    id='orgDba'
+    placeholder='DBA'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgCeoName" class="form-label">CEO / Administrative Lead</label>
-  <linked-autofill-input v-model="organization" field="ceo_name" name='orgCeoName' id='orgCeoName'></linked-autofill-input>
+  <linked-autofill-input
+    v-model='organization'
+    field='ceo_name'
+    name='orgCeoName'
+    id='orgCeoName'
+    placeholder='name'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgOperatingBudget" class="form-label">Operating Budget</label>
-  <input type="text" name='orgOperatingBudget' id='orgOperatingBudget' class="form-control">
+  <linked-autofill-input
+    v-model='organization'
+    field='operating_budget'
+    name='orgOperatingBudget'
+    id='orgOperatingBudget'
+    placeholder='operating budget'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3 form-check">
   <input v-model="organization.is_lobbying" type="checkbox" class="form-check-input" name="orgIsLobbying" id="orgIsLobbying">
@@ -280,54 +324,112 @@ app.component('AutofillForm', {
 </div>
 <div class="mb-3">
   <label for="orgStartDate" class="form-label">Organization Start Date</label>
-  <linked-autofill-input v-model="organization" field="start_date" name='orgStartDate' id='orgStartDate'></linked-autofill-input>
-</div>
-<div class="mb-3">
-  <label for="orgWorkLocations" class="form-label">Work Locations</label>
-  (To be implemented...)
-</div>
-<div class="mb-3">
-  <label for="orgFinancialStatements" class="form-label">Financial Statements</label>
-  (To be implemented...)
+  <linked-autofill-input
+    v-model='organization'
+    field='start_date'
+    name='orgStartDate'
+    id='orgStartDate'
+    placeholder='start date'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgSignatory" class="form-label">Grant Agreement Signatory</label>
-  <linked-autofill-input v-model="organization" field="grant_agreement_signatory" name='orgSignatory' id='orgSignatory'></linked-autofill-input>
+  <linked-autofill-input
+    v-model='organization'
+    field='grant_agreement_signatory'
+    name='orgSignatory'
+    id='orgSignatory'
+    placeholder='signatory'
+    ></linked-autofill-input>
 </div>
 <div class="mb-3">
   <label for="orgFiscalEndDate" class="form-label">Organization Fiscal End Date</label>
-  <linked-autofill-input v-model="organization" field="fiscal_end_date" name='orgFiscalEndDate' id='orgFiscalEndDate'></linked-autofill-input>
+  <linked-autofill-input
+    v-model='organization'
+    field='fiscal_end_date'
+    name='orgFiscalEndDate'
+    id='orgFiscalEndDate'
+    placeholder='fiscal end date'
+    ></linked-autofill-input>
 </div>
 </fieldset>
 <fieldset>
 <legend>Proposal</legend>
 <div class="mb-3">
   <label for="proposalContact" class="form-label">Primary Contact Name</label>
-  <input type="text" v-model='proposal.primary_contact_name' name='proposalContactName' id='proposalContactName' class="form-control">
+  <input
+    type='text'
+    v-model='proposal.primary_contact_name'
+    name='proposalContactName'
+    id='proposalContactName'
+    class='form-control'
+    placeholder='contact name'
+    >
 </div>
 <div class="mb-3">
   <label for="proposalRequestedBudget" class="form-label">Requested Budget</label>
-  <input type="text" v-model='proposal.requested_budget' name='proposalRequestedBudget' id='proposalRequestedBudget' class="form-control">
+  <input
+    type='text'
+    v-model='proposal.requested_budget'
+    name='proposalRequestedBudget'
+    id='proposalRequestedBudget'
+    class='form-control'
+    placeholder='requested budget'
+    >
 </div>
 <div class="mb-3">
   <label for="proposalStartDate" class="form-label">Investment Start Date</label>
-  <input type="text" v-model='proposal.investment_start_date' name='proposalStartDate' id='proposalStartDate' class="form-control">
+  <input
+    type='text'
+    v-model='proposal.investment_start_date'
+    name='proposalStartDate'
+    id='proposalStartDate'
+    class='form-control'
+    placeholder='start date'
+    >
 </div>
 <div class="mb-3">
   <label for="proposalEndDate" class="form-label">Investment End Date</label>
-  <input type="text" v-model='proposal.investment_end_date' name='proposalEndDate' id='proposalEndDate' class="form-control">
+  <input
+    type='text'
+    v-model='proposal.investment_end_date'
+    name='proposalEndDate'
+    id='proposalEndDate'
+    class='form-control'
+    placeholder='end date'
+    >
 </div>
 <div class="mb-3">
   <label for="proposalTotalBudget" class="form-label">Total Project Budget</label>
-  <input type="text" v-model='proposal.total_budget' name='proposalTotalBudget' id='proposalTotalBudget' class="form-control">
+  <input
+    type="text"
+    v-model='proposal.total_budget'
+    name='proposalTotalBudget'
+    id='proposalTotalBudget'
+    class='form-control'
+    placeholder='project budget'
+    >
 </div>
 <div class="mb-3">
   <label for="proposalFiscalSponsor" class="form-label">Fiscal Sponsor Organization</label>
-  <input type="text" v-model='proposal.fiscal_sponsor_name' name='proposalFiscalSponsor' id='proposalFiscalSponsor' class="form-control">
+  <input
+    type='text'
+    v-model='proposal.fiscal_sponsor_name'
+    name='proposalFiscalSponsor'
+    id='proposalFiscalSponsor'
+    class='form-control'
+    placeholder='fiscal sponsor'
+    >
 </div>
 <div class="mb-3">
   <label for="proposalDescription" class="form-label">Executive Summary</label>
-  <textarea v-model='proposal.description' name='proposalDescription' id='proposalDescription' class="form-control"></textarea>
+  <textarea
+    v-model='proposal.description'
+    name='proposalDescription'
+    id='proposalDescription'
+    class='form-control'
+    placeholder='executive summary'
+    ></textarea>
 </div>
 </fieldset>
 <button type="submit" class="btn btn-primary"
