@@ -6,16 +6,16 @@ from flask import (
 
 from cgap.db import get_db
 
-bp = Blueprint('ux', __name__, url_prefix='/ux')
+bp = Blueprint('ux', __name__, url_prefix='/')
 
-@bp.route('/apply', methods=('GET', 'POST'))
+@bp.route('/gms-apply', methods=('GET', 'POST'))
 def apply():
     return render_template('apply.html')
 
-@bp.route('/review', methods=('GET', 'POST'))
+@bp.route('/search', methods=('GET', 'POST'))
 def review():
-    return render_template('review.html')
+    return render_template('search.html')
 
-@bp.route('/review/<int:proposal_id>', methods=('GET', 'POST'))
+@bp.route('/proposal/<int:proposal_id>', methods=('GET', 'POST'))
 def view(proposal_id):
-    return render_template('view.html', proposal_id=proposal_id)
+    return render_template('proposal.html', proposal_id=proposal_id)

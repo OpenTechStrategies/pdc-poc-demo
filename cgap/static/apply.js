@@ -192,7 +192,7 @@ app.component('AutofillForm', {
     },
 
     redirectToProposalView() {
-      window.location.href = `/ux/review/${this.proposal.id}`
+      window.location.href = `/proposal/${this.proposal.id}`
     },
 
     submitForm() {
