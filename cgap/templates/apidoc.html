@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block title %}API Documentation{% endblock %}
+
+{% block content %}
+<h1>API Documentation</h1>
+
+<p>The PoC Demo API offers programmatic access to the sample data,
+using a standard <a
+href="https://en.wikipedia.org/wiki/Representational_state_transfer"
+>REST-style</a> interface.  It is a preview of what a full, production
+service API would look like.</p>
+
+<p><em>Please note that because this is a demo, there is currently no
+authentication or authorization defined for the API.  A real instance
+would have authentication and access-control in front of the API, so
+that only authorized parties could access the data.</em></p>
+
+<ul>
+
+  <li><p><tt><strong>Organization</strong></tt>&nbsp;<em>(entity)</em></p>
+    <ul>
+      <li><p><tt><strong>GET /organizations/</strong></tt></p>
+          <p>Returns a list of all organizations.</p></li>
+  
+      <li><p><tt><strong>POST /organizations/</strong></tt></p>
+          <p>Creates a new organization object.</p></li>
+  
+      <li><p><tt><strong>GET /organizations/{EIN}</strong></tt></p>
+          <p>Returns a single organization.</p></li>
+  
+      <li><p><tt><strong>POST /organizations/{EIN}</strong></tt></p>
+          <p>Updates an existing organization object.</p></li>
+    </ul>
+  </li>
+
+  <li><p><tt><strong>Proposal</strong></tt>&nbsp;<em>(entity)</em></p>
+    <ul>
+      <li><p><tt><strong>GET /proposals/</strong></tt></p>
+          <p>Returns a list of all proposals.</p>
+          <p>Can optionally accept a s query parameter which defines 
+             a search term.</p></li>
+  
+      <li><p><tt><strong>POST /proposals/</strong></tt></p>
+          <p>Creates a new proposal object.</p></li>
+  
+      <li><p><tt><strong>GET /proposals/{ID}</strong></tt></p>
+          <p>Returns a single proposal.</p></li>
+  
+      <li><p><tt><strong>POST /proposals/{ID}</strong></tt></p>
+          <p>Updates an existing proposal object.</p></li>
+    <ul>
+  </li>
+
+</ul>
+
+{% endblock %}

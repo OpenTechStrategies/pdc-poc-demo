@@ -69,6 +69,7 @@ app.component('ProposalSearch', {
     <input class="form-control"
       v-model="inputValue"
       @input="handleInput"
+      placeholder='matches on name and mission statement -- for example, start typing "disaster"'
       >
   </div>
 </div>
