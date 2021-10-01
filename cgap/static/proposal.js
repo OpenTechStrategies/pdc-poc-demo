@@ -29,6 +29,7 @@ app.component('Proposal', {
           'grant_agreement_signatory': '',
           'fiscal_end_date': '',
         },
+        'name': '',
         'created': '',
         'primary_contact_name': '',
         'requested_budget': '',
@@ -155,6 +156,10 @@ app.component('Proposal', {
   <tr>
     <th scope="row">Submission Date</th>
     <td>{{proposal.created}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Project Name</th>
+    <td>{{proposal.name}}</td>
   </tr>
   <tr>
     <th scope="row">Primary Contact</th>

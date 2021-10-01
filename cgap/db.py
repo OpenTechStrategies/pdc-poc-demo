@@ -35,6 +35,7 @@ class Organization(BaseModel):
 class Proposal(BaseModel):
     id = AutoField()
     organization = ForeignKeyField(Organization, backref='proposals')
+    name = TextField()
     created = TimestampField()
     primary_contact_name = TextField()
     requested_budget = TextField()
@@ -93,13 +94,14 @@ def load_proposal_seed():
         for proposal_row in proposal_reader:
             Proposal.create(
                 organization_id = proposal_row[1],
-                primary_contact_name = proposal_row[3],
-                requested_budget = proposal_row[4],
-                investment_start_date = proposal_row[5],
-                investment_end_date = proposal_row[6],
-                total_budget = proposal_row[7],
-                fiscal_sponsor_name = proposal_row[8],
-                description = proposal_row[9],
+                name = proposal_row[3],
+                primary_contact_name = proposal_row[4],
+                requested_budget = proposal_row[5],
+                investment_start_date = proposal_row[6],
+                investment_end_date = proposal_row[7],
+                total_budget = proposal_row[8],
+                fiscal_sponsor_name = proposal_row[9],
+                description = proposal_row[10],
             )
 
 
