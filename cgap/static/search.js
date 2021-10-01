@@ -76,7 +76,7 @@ app.component('ProposalSearch', {
   methods: {
     fetchProposals(query) {
       try {
-        const url = `/api/proposals`
+        const url = `/poc-demo/api/proposals`
         var request = new XMLHttpRequest();
         request.open('GET', url, true);
 
@@ -99,10 +99,10 @@ app.component('ProposalSearch', {
       this.fetchProposals(event.target.value);
     },
     generateProposalViewUrl(id) {
-      return `/proposal/${id}`;
+      return `/poc-demo/proposal/${id}`;
     },
     generateOrganizationViewUrl(id) {
-      return `/organization/${id}`;
+      return `/poc-demo/organization/${id}`;
     }
   },
 
