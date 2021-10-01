@@ -20,11 +20,51 @@ app.component('ProposalSearch', {
         return []
       }
 
+      // Create a dictionary of of org + proposal objects
+      const proposalGroupsObject = this.matches.reduce(
+        function (accumulator, match) {
+          if (!(match.organization.id in accumulator)) {
+            accumulator[match.organization.id] = {
+              organization: match.organization,
+              proposals: [],
+              matches: [],
+            }
+          }
+          accumulator[match.organization.id].proposals.push(match);
+          return accumulator;
+        },
+        {},
+      )
+      const proposalGroups = Object.values(proposalGroupsObject)
+        .map((group) => {
+          if (hasMatch(group.organization.name, this.inputValue)) {
+            group.matches.push("Org Name");
+          }
+          if (hasMatch(group.organization.website, this.inputValue)) {
+            group.matches.push("Website");
+          }
+          if (hasMatch(group.organization.address, this.inputValue)) {
+            group.matches.push("Address");
+          }
+          if (hasMatch(group.organization.phone, this.inputValue)) {
+            group.matches.push("Phone");
+          }
+          if (hasMatch(group.organization.ceo_name, this.inputValue)) {
+            group.matches.push("CEO");
+          }
+
+          const matchedProposals = group.proposals.filter((proposal) => {
+            return hasMatch(proposal.description, this.inputValue)
+            || hasMatch(proposal.name, this.inputValue);
+          })
+          if (matchedProposals.length > 0) {
+            group.matches.push("Proposal");
+          }
+          return group;
+        })
+
       // We want to filter here as well to prevent common UX lag between API requests
-      return this.matches.filter((match) => {
-        return hasMatch(match.organization.name, this.inputValue)
-        || hasMatch(match['description'], this.inputValue);
-      });
+      return proposalGroups.filter((match) => { return match.matches.length !== 0; });
     },
     hasMatches() {
       return this.filteredMatches.length >= 0 && this.inputValue !== '';
@@ -58,27 +98,35 @@ app.component('ProposalSearch', {
     handleInput(event) {
       this.fetchProposals(event.target.value);
     },
-    generateViewUrl(id) {
+    generateProposalViewUrl(id) {
       return `/proposal/${id}`;
+    },
+    generateOrganizationViewUrl(id) {
+      return `/organization/${id}`;
     }
   },
 
   template: `
-<div class="row">
-  <div class="col-12">
+<div class="d-grid gap-3">
+  <div>
     <input class="form-control"
       v-model="inputValue"
       @input="handleInput"
       placeholder='matches on name and mission statement -- for example, start typing "disaster"'
       >
   </div>
-</div>
-<div>
-  <div v-for="match in filteredMatches" class="proposal row">
-    <div class="col-12">
-      <h2>{{ match.organization.name }} ({{ match.organization.registration_number }})</h2>
-      {{ match.description }}
-      <div><a :href='generateViewUrl(match.id)'>(view)</a></div>
+  <div v-for="match in filteredMatches" class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ match.organization.name }} <a :href='generateOrganizationViewUrl(match.organization.id)'>(View)</a></h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ match.organization.registration_number }}</h6>
+      <p>{{match.organization.address}}</p>
+      <h6>Proposals</h6>
+      <ul class="list-group list-group-flush">
+        <li v-for="proposal in match.proposals" class="list-group-item">
+          {{proposal.name}}, {{proposal.requested_budget}} <a :href='generateProposalViewUrl(proposal.id)'>(view)</a>
+        </li>
+      </ul>
+      <p class="card-text">Matched on: <span v-for="term in match.matches" class="badge bg-secondary ms-1">{{term}}</span></p>
     </div>
   </div>
 </div>
