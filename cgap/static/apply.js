@@ -130,6 +130,7 @@ app.component('AutofillForm', {
       },
       proposal: {
         'id': '',
+        'name': '',
         'created': '',
         'primary_contact_name': '',
         'requested_budget': '',
@@ -243,7 +244,9 @@ app.component('AutofillForm', {
 <div class="mb-3">
   <label for="orgEntityType" class="form-label">Entity Type</label>
   <select id="orgEntityType" class="form-select">
-    <option value="501c3">501(c)(3)</option>
+    <option value="501(c)(3)">501(c)(3)</option>
+    <option value="501(c)(4)">501(c)(4)</option>
+    <option value="501(c)(6)">501(c)(6)</option>
   </select>
 </div>
 <div class="mb-3">
@@ -355,6 +358,17 @@ app.component('AutofillForm', {
 </fieldset>
 <fieldset>
 <legend>Proposal</legend>
+<div class="mb-3">
+  <label for="proposalName" class="form-label">Project Name</label>
+  <input
+    type='text'
+    v-model='proposal.name'
+    name='proposalName'
+    id='proposalName'
+    class='form-control'
+    placeholder='project name'
+    >
+</div>
 <div class="mb-3">
   <label for="proposalContact" class="form-label">Primary Contact Name</label>
   <input
