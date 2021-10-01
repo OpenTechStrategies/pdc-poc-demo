@@ -37,11 +37,11 @@ app.component('Organization', {
   computed: {},
   methods: {
     generateProposalViewUrl(id) {
-      return `/proposal/${id}`;
+      return `/poc-demo/proposal/${id}`;
     },
     loadOrganization(query) {
       try {
-        const url = `/api/organizations/${this.organizationId}`
+        const url = `/poc-demo/api/organizations/${this.organizationId}`
         var request = new XMLHttpRequest();
         request.open('GET', url, true);
 
@@ -61,7 +61,7 @@ app.component('Organization', {
     },
     loadProposals(query) {
       try {
-        const url = `/api/organizations/${this.organizationId}/proposals`
+        const url = `/poc-demo/api/organizations/${this.organizationId}/proposals`
         var request = new XMLHttpRequest();
         request.open('GET', url, true);
 

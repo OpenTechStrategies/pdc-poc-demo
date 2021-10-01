@@ -48,7 +48,7 @@ app.component('Proposal', {
   methods: {
     loadProposal(query) {
       try {
-        const url = `/api/proposals/${this.proposalId}`
+        const url = `/poc-demo/api/proposals/${this.proposalId}`
         var request = new XMLHttpRequest();
         request.open('GET', url, true);
 
@@ -67,7 +67,7 @@ app.component('Proposal', {
       } catch {}
     },
     generateOrganizationViewUrl(id) {
-      return `/organization/${id}`;
+      return `/poc-demo/organization/${id}`;
     }
   },
 

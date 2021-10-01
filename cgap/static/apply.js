@@ -48,7 +48,7 @@ app.component('LinkedAutofillInput', {
   methods: {
     fetchOrganizations(query) {
       try {
-        const url = `/api/organizations`
+        const url = `/poc-demo/api/organizations`
         var request = new XMLHttpRequest();
         request.open('GET', url, true);
 
