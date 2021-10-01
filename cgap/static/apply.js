@@ -43,7 +43,7 @@ app.component('LinkedAutofillInput', {
         return this.modelValue[this.field];
       }
       return '';
-    }
+    },
   },
   methods: {
     fetchOrganizations(query) {
@@ -83,7 +83,13 @@ app.component('LinkedAutofillInput', {
       updatedValue[this.field] = event.target.value;
       this.updateModel(updatedValue);
       this.fetchOrganizations(event.target.value);
-    }
+    },
+    fieldIsName() {
+      return this.field == 'name';
+    },
+    fieldIsRegistrationNumber() {
+      return this.field == 'registration_number';
+    },
   },
 
   template: `
@@ -98,7 +104,7 @@ app.component('LinkedAutofillInput', {
   <ul>
     <li v-for="match in filteredMatches"
       @mousedown.prevent="makeSelection(match)"
-      >{{ getMatchValue(match) }} :: {{ match.name }} ({{ match.registration_number }})</li>
+      >{{ getMatchValue(match) }}<span v-if="!fieldIsName()"> :: {{ match.name }}</span><span v-if="!fieldIsRegistrationNumber()"> ({{ match.registration_number }})</span></li>
   </ul>
 </div>
 `
