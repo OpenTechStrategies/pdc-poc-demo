@@ -8,6 +8,10 @@ from cgap.db import get_db
 
 bp = Blueprint('ux', __name__, url_prefix='/')
 
+@bp.route('/', methods=('GET', 'POST'))
+def landing():
+    return render_template('landing.html')
+
 @bp.route('/gms-apply', methods=('GET', 'POST'))
 def apply():
     return render_template('apply.html')
