@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='organization.js') }}"></script>
+{% endblock %}
+
+{% block title %}View Organization{% endblock %}
+
+{% block content %}
+<div id="app">
+  <organization organization-id="{{ organization_id }}"></organization>
+</div>
+<script type="text/javascript">
+app.mount('#app')
+</script>
+{% endblock %}

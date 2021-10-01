@@ -77,6 +77,23 @@ def updateOrganization(organization_id):
     ))
 
 
+@bp.route('/organizations/<int:organization_id>/proposals', methods=['GET'])
+def getProposalsByOrganizationId(organization_id):
+    query = Proposal.select(
+        Proposal,
+        Organization,
+    ).join(
+        Organization,
+        attr='organization'
+    ).where(
+        Proposal.organization_id == organization_id,
+    )
+
+    print(organization_id)
+    proposals = [model_to_dict(proposal, recurse=True) for proposal in query]
+    return json.dumps(proposals, default=str)
+
+
 @bp.route('/proposals/', methods=['GET'])
 def getProposals():
     query = Proposal.select(

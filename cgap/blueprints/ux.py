@@ -25,5 +25,9 @@ def apidoc():
     return render_template('apidoc.html')
 
 @bp.route('/proposal/<int:proposal_id>', methods=('GET', 'POST'))
-def view(proposal_id):
+def viewProposal(proposal_id):
     return render_template('proposal.html', proposal_id=proposal_id)
+
+@bp.route('/organization/<int:organization_id>', methods=('GET', 'POST'))
+def viewOrganization(organization_id):
+    return render_template('organization.html', organization_id=organization_id)
