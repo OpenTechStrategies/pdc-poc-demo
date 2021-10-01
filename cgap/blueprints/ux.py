@@ -20,6 +20,10 @@ def apply():
 def review():
     return render_template('search.html')
 
+@bp.route('/apidoc', methods=('GET', 'POST'))
+def apidoc():
+    return render_template('apidoc.html')
+
 @bp.route('/proposal/<int:proposal_id>', methods=('GET', 'POST'))
 def view(proposal_id):
     return render_template('proposal.html', proposal_id=proposal_id)

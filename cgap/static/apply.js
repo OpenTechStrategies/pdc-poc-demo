@@ -217,7 +217,7 @@ app.component('AutofillForm', {
     field='name'
     name='orgName'
     id='orgName'
-    placeholder='name'
+    placeholder='type part of an org name here -- for example, try "blue" or "space"'
     ></linked-autofill-input>
 </div>
 <div class="mb-3">
@@ -227,7 +227,7 @@ app.component('AutofillForm', {
     name='orgMissionStatement'
     id='orgMissionStatement'
     class='form-control'
-    placeholder='mission'
+    placeholder='mission statement -- does not autofill'
     ></textarea>
 </div>
 <div class="mb-3">
@@ -237,7 +237,7 @@ app.component('AutofillForm', {
     field='website'
     name='orgWebsite'
     id='orgWebsite'
-    placeholder='website'
+    placeholder='org web site -- autofills (try typing slowly)'
     ></linked-autofill-input>
 </div>
 <div class="mb-3">
@@ -254,7 +254,7 @@ app.component('AutofillForm', {
     name='orgRegistrationNumber'
     id='orgRegistrationNumber'
     aria-describedby='orgRegistrationNumberHelp'
-    placeholder='EIN'
+    placeholder='EIN -- autofills, showing org name for accuracy'
     ></linked-autofill-input>
   <div id="orgRegistrationNumberHelp" class="form-text">(e.g. EIN / TIN)</div>
 </div>
@@ -265,7 +265,7 @@ app.component('AutofillForm', {
     field='address'
     name='orgAddress'
     id='orgAddress'
-    placeholder='address'
+    placeholder='address -- autofills, also showing org name'
     ></linked-autofill-input>
 </div>
 <div class="mb-3">
@@ -275,7 +275,7 @@ app.component('AutofillForm', {
     field='phone'
     name='orgPhone'
     id='orgPhone'
-    placeholder='phone'
+    placeholder='phone -- autofills, also showing org name'
     ></linked-autofill-input>
 </div>
 <div class="mb-3">
@@ -285,7 +285,7 @@ app.component('AutofillForm', {
     field='email'
     name='orgEmail'
     id='orgEmail'
-    placeholder='email'
+    placeholder='email -- autofills, also showing org name'
     ></linked-autofill-input>
 </div>
 <div class="mb-3">
@@ -295,7 +295,7 @@ app.component('AutofillForm', {
     field='dba_name'
     name='orgDba'
     id='orgDba'
-    placeholder='DBA'
+    placeholder='alternate name -- autofills, also showing org name'
     ></linked-autofill-input>
 </div>
 <div class="mb-3">
@@ -305,7 +305,7 @@ app.component('AutofillForm', {
     field='ceo_name'
     name='orgCeoName'
     id='orgCeoName'
-    placeholder='name'
+    placeholder='name of person -- autofills, also showing org name'
     ></linked-autofill-input>
 </div>
 <div class="mb-3">
