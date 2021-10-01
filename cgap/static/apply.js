@@ -156,8 +156,7 @@ app.component('AutofillForm', {
       for ( var key in organization ) {
         formData.append(key, organization[key]);
       }
-      console.log("UPDATING ORGANIZATION");
-      request.open('POST', '/api/organizations/' + organization.id, true);
+      request.open('POST', '/poc-demo/api/organizations/' + organization.id, true);
       request.send(formData);
     },
 
@@ -167,7 +166,7 @@ app.component('AutofillForm', {
       for ( var key in organization ) {
         formData.append(key, organization[key]);
       }
-      request.open('POST', '/api/organizations', true);
+      request.open('POST', '/poc-demo/api/organizations', true);
       const context = this;
       request.onreadystatechange = function() {
         if (request.readyState == XMLHttpRequest.DONE) {
@@ -186,7 +185,7 @@ app.component('AutofillForm', {
         formData.append(key, proposal[key]);
       }
       formData.append('organization_id', organizationId)
-      request.open('POST', '/api/proposals', true);
+      request.open('POST', '/poc-demo/api/proposals', true);
       const context = this;
       request.onreadystatechange = function() {
         if (request.readyState == XMLHttpRequest.DONE) {
@@ -199,7 +198,7 @@ app.component('AutofillForm', {
     },
 
     redirectToProposalView() {
-      window.location.href = `/proposal/${this.proposal.id}`
+      window.location.href = `/poc-demo/proposal/${this.proposal.id}`
     },
 
     submitForm() {
