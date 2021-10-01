@@ -6,7 +6,7 @@ from flask import (
 
 from cgap.db import get_db
 
-bp = Blueprint('ux', __name__, url_prefix='/')
+bp = Blueprint('ux', __name__, url_prefix='/poc-demo/')
 
 @bp.route('/', methods=('GET', 'POST'))
 def landing():

@@ -9,7 +9,7 @@ from cgap.db import (
     Proposal,
 )
 
-bp = Blueprint('api', __name__, url_prefix='/api')
+bp = Blueprint('api', __name__, url_prefix='/poc-demo/api')
 
 @bp.route('/organizations/', methods=['GET'])
 def getOrganizations():
@@ -123,6 +123,7 @@ def getProposalById(proposal_id):
 def createProposal():
     proposal = Proposal.create(
         organization_id=request.form.get('organization_id'),
+        name=request.form.get('name'),
         primary_contact_name=request.form.get('primary_contact_name'),
         requested_budget=request.form.get('requested_budget'),
         investment_start_date=request.form.get('investment_start_date'),
