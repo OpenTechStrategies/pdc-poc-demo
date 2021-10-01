@@ -6,7 +6,7 @@
 {% block title %}API Documentation{% endblock %}
 
 {% block content %}
-<h1>API Documentation</h1>
+<h1>Application Programming Interface (API)</h1>
 
 <p>The PoC Demo API offers programmatic access to the sample data,
 using a standard <a
@@ -14,10 +14,30 @@ href="https://en.wikipedia.org/wiki/Representational_state_transfer"
 >REST-style</a> interface.  It is a preview of what a full, production
 service API would look like.</p>
 
+<p>The API endpoints described below are live&nbsp;&mdash;&nbsp;you
+can try them out in your browser, or using a command-line tool like
+<tt>curl</tt> or <tt>wget</tt>, or from program code.  For example, to
+receive the list of sample organizations (represented in <a
+href="https://en.wikipedia.org/wiki/JSON" >JSON</a> format) from the
+API in your browser, just visit the endpoint directly:</p>
+
+<pre>
+  <a href="https://cgap.opentechstrategies.com/poc-demo/api/organizations/"
+  >https://cgap.opentechstrategies.com/poc-demo/api/organizations/</a>
+</pre>
+
+<p>Or get the same information on the command line:</p>
+
+<pre>
+  $ curl https://cgap.opentechstrategies.com/poc-demo/api/organizations/
+</pre>
+
 <p><em>Please note that because this is a demo, there is currently no
 authentication or authorization defined for the API.  A real instance
 would have authentication and access-control in front of the API, so
 that only authorized parties could access the data.</em></p>
+
+<h2>API Entities and Endpoints</h2>
 
 <ul>
 
