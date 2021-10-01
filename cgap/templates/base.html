@@ -10,13 +10,8 @@
     <script type="text/javascript" src="{{ url_for('static', filename='lib/js/vue.min.js') }}"></script>
     {% block head %}{% endblock %}
   </head>
-  <body>
-    <div class="container">
-      {% for message in get_flashed_messages() %}
-        <div class="alert alert-primary" role="alert">{{ message }}</div>
-      {% endfor %}
-    </div>
-    <div class="container">
+  <body style="background: #bdcfeb">
+    <div class="container m-5 p-5 rounded border border-2" style="background: #fff">
       {% block content %}{% endblock %}
     </div>
   </body>

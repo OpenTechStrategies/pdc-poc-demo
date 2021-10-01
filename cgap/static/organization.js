@@ -82,7 +82,7 @@ app.component('Organization', {
   },
 
   template: `
-<h1>Organization (#{{organization.id}})</h1>
+<h1 class="text-primary">Organization (#{{organization.id}})</h1>
 <h2>Organization Fields</h2>
 <table class="table">
 <thead>

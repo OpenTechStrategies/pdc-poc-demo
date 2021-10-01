@@ -72,7 +72,7 @@ app.component('Proposal', {
   },
 
   template: `
-<h1>Proposal (#{{proposal.id}})</h1>
+<h1 class="text-primary">Proposal (#{{proposal.id}})</h1>
 <table class="table">
 <thead>
   <tr>
