@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, redirect
 
 def create_app(test_config=None):
     # create and configure the app
@@ -31,5 +31,9 @@ def create_app(test_config=None):
 
     from cgap.blueprints import api
     app.register_blueprint(api.bp)
+
+    @app.route('/')
+    def rootRedirect():
+        return redirect('/poc-demo/')
 
     return app
