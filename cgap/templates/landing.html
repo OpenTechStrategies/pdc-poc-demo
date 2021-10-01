@@ -6,10 +6,83 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-<h1>Welcome</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nulla urna, eleifend a est et, varius imperdiet ipsum. Suspendisse potenti. Praesent non erat non ipsum elementum varius molestie non risus. Pellentesque ut faucibus purus, sed consectetur ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed et nunc risus. Vivamus turpis lectus, mollis a tempus ac, blandit sit amet arcu. Suspendisse interdum augue tellus, a volutpat turpis hendrerit in. Donec accumsan massa nec lorem congue, sed blandit dui dignissim. Curabitur aliquam enim augue, dictum lacinia justo ullamcorper sed. Pellentesque at ligula vulputate, vestibulum enim sed, venenatis mi.</p>
-<p>Cras consequat urna sed ultrices varius. Maecenas sit amet nulla at purus dapibus vehicula at id velit. Quisque nec commodo felis. Fusce at ligula varius, dictum purus eu, porttitor lacus. Cras feugiat nisl nibh, ut vulputate urna porta sit amet. Aliquam erat volutpat. Phasellus pretium congue purus, vitae auctor erat pretium sed. Donec vel sodales felis. Duis euismod nec tortor eu consectetur. Donec quis sodales tellus. Vestibulum ultrices sed ante nec dictum. Morbi condimentum et felis dictum mollis. Nullam feugiat massa nec tortor vulputate, quis pulvinar quam ultricies.</p>
-<p>Vivamus lacinia tellus nisi, nec tempus leo hendrerit non. Nullam lacinia malesuada mi, ut pellentesque sapien consequat in. Morbi eget sem turpis. Nunc in ligula quis lorem ultrices pulvinar. Sed a ex finibus, mattis eros sit amet, tempus nunc. Sed at maximus lectus. In hac habitasse platea dictumst. Nam tempus porta ex, in porta nisi auctor et.</p>
-<p>In hac habitasse platea dictumst. Nunc facilisis sagittis eros, vitae hendrerit purus. Cras sit amet nunc vel purus blandit tristique. Cras ornare est ut urna vestibulum, at molestie ex ultrices. Integer dapibus in arcu at porttitor. Mauris congue metus ligula, a porta sapien varius vulputate. Cras vulputate facilisis eros, sit amet cursus enim dictum eget. Maecenas varius scelerisque nulla id tincidunt. Maecenas dignissim, dui et convallis pulvinar, felis tortor elementum risus, at malesuada mi est id eros. Aenean vehicula a tellus ut posuere. Vivamus lobortis rutrum tellus eu ultricies. Phasellus ut egestas ligula. Sed lobortis, dolor rutrum scelerisque vestibulum, odio erat dapibus augue, id mollis lorem risus id leo. Nunc nulla ante, varius eget turpis pellentesque, vehicula blandit leo. In nec massa vitae sem elementum dapibus sit amet volutpat ante.</p>
-<p>Aliquam vehicula quis tortor ac pulvinar. Nunc interdum convallis nisl, quis tempor est finibus ut. Donec aliquet iaculis augue, ac aliquet nisl eleifend eget. Fusce ut hendrerit justo. Donec ultricies sed urna at blandit. Nulla facilisi. Proin convallis accumsan augue, sed consectetur turpis blandit quis. Curabitur molestie elementum maximus. Nulla convallis tincidunt interdum. Sed consectetur nec purus sit amet sollicitudin. Quisque iaculis hendrerit nunc et imperdiet.</p>
+<h1>CGAP Proof-of-Concept Screens</h1>
+
+<p>This proof-of-concept shows severals screens demonstrating how
+properly access-controlled shared data can help grantseekers and
+grantmakers do a better job of finding each other, and can save
+grantseekers time when applying for funding.</p>
+
+<p><em>(Note: all the data here is fictitious sample data created for
+this demo site.  No actual organization data is used.)</em></p>
+
+<ol>
+
+<li><p><a href="/gms-apply">GMS application screen</a>&nbsp;(simulation)</p>
+
+    <p><a href="/gms-apply"
+       ><img src="/static/images/gms-apply-screen.png" 
+             alt="Small impression of GMS Apply screen."
+             style="border: 1px solid #555;"
+       /></a></p>
+
+    <p>An application screen in a prospective CGAP-enabled Grant
+       Management System (GMS).</p>
+
+    <p>When the applicant starts typing their organization's name or
+       EIN, the field offers autofills based on existing data.  Once
+       the organization is identified, <em>all the rest of the
+       fields</em> fill in automatically, sparing the applicant the
+       need to re-enter data that they have probably entered too many
+       times already.</p>
+
+    <p>If the applicant changes the information in one of the
+       fields&nbsp;&mdash;&nbsp;say, there is a new
+       CEO&nbsp;&mdash;&nbsp;the GMS saves the new information and
+       sends it back to the CGAP Common Data Platform.  There, the
+       organization's record is (potentially) updated, in accordance
+       with data governance and update rules.</p>
+
+    <p>The applicant takes no extra steps to make any of this happen.
+       The GMS just uses data the applicant has entered before,
+       perhaps elsewhere.  And by accepting updates and sending them
+       back to the CDP, the GMS contributes to future time-saving for
+       the applicant.</p>
+
+</li>
+
+<li><p><a href="/search">Search screen: find organizations by activity</a></p>
+
+    <p><a href="/search"
+       ><img src="/static/images/search-screen.png" 
+             alt="Small impression of search screen."
+             style="border: 1px solid #555;"
+       /></a></p>
+
+    <p>Shows how a funder can search to find new organizations, based
+       on those organizations' activities, populations served,
+       etc.</p>
+
+    <p>The search includes both organizations themselves and their
+       associated proposals.  For example, it matches organization
+       names and mission statements, and also matches proposal names,
+       descriptions, etc.</p>
+
+</li>
+
+<li><p><a href="/apidoc">Automated access&nbsp;&mdash;&nbsp;API documentation</a></p>
+
+    <p><a href="/apidoc"
+       ><img src="/static/images/apidoc-screen.png" 
+             alt="Small impression of API documentation screen."
+             style="border: 1px solid #555;"
+       /></a></p>
+
+    <p>Other systems can access the Common Data Platform
+       programatically, with proper authorization.  The API
+       ("Application Programming Interface") documentation shows
+       how.</p>
+
+</li>
+
 {% endblock %}
