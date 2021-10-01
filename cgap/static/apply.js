@@ -314,9 +314,9 @@ app.component('AutofillForm', {
     </div>
     <div class="mb-3">
       <label for="orgOperatingBudget" class="form-label">Operating Budget</label>
-      <linked-autofill-input
-        v-model='organization'
-        field='operating_budget'
+      <input
+        v-model='organization.operating_budget'
+        class="form-control"
         name='orgOperatingBudget'
         id='orgOperatingBudget'
         placeholder='operating budget'
@@ -328,9 +328,9 @@ app.component('AutofillForm', {
     </div>
     <div class="mb-3">
       <label for="orgStartDate" class="form-label">Organization Start Date</label>
-      <linked-autofill-input
-        v-model='organization'
-        field='start_date'
+      <input
+        v-model='organization.start_date'
+        class="form-control"
         name='orgStartDate'
         id='orgStartDate'
         placeholder='start date'
@@ -348,9 +348,9 @@ app.component('AutofillForm', {
     </div>
     <div class="mb-3">
       <label for="orgFiscalEndDate" class="form-label">Organization Fiscal End Date</label>
-      <linked-autofill-input
-        v-model='organization'
-        field='fiscal_end_date'
+      <input
+        v-model='organization.fiscal_end_date'
+        class="form-control"
         name='orgFiscalEndDate'
         id='orgFiscalEndDate'
         placeholder='fiscal end date'
