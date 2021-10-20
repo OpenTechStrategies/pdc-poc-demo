@@ -5,7 +5,21 @@ application for philanthropy might look like.  See the [use cases
 documentation](docs/USE_CASES.md) for more details about what this
 demo shows and why.
 
-This is NOT meant to run in production (APIs are public and data can be deleted any time).
+This is NOT meant to run in production.  The APIs are public, with no
+authorization controls, and data may be refreshed or deleted at any
+time.
+
+There are a draft [architecture diagram](docs/architecture.png) and a
+draft [entity relationship diagram
+(ERD)](docs/entity-relationships.png) in the [docs](docs) directory;
+both are available as PDF and PNG.  These diagrams are
+works-in-progress and should not be considered final.
+
+There are also a number of screenshots available in the
+[images](images) directory (as well as a few in
+[cgap/static/images/](cgap/static/images/) that are actually displayed
+by the application itself).  Screenshots are not guaranteed to be
+up-to-date with respect to the code.
 
 ## Setting Up
 
