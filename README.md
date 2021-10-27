@@ -3,12 +3,13 @@
 This is a demonstration project to show what a common grant
 application for philanthropy might look like.  See the [use cases
 documentation](docs/USE_CASES.md) for more details about what this
-demo shows and why.
+demo shows and why, and the [core fields list](docs/CORE_FIELDS.md)
+for the set of fields we have so far identified as being common to
+many grant applications.
 
-This is NOT meant to run in production.  The APIs are public, with no
-authorization controls.
-
-There is a live demo site at
+Please note that this software is for demonstration purposes only and
+is NOT meant to run in production.  The APIs are public, with no
+authorization controls.  There is a live demo site at
 [cgap.opentechstrategies.com/poc-demo](cgap.opentechstrategies.com/poc-demo).
 The demo site uses entirely made-up sample data that may be refreshed
 or deleted at any time.
