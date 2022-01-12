@@ -3,7 +3,7 @@ from io import TextIOWrapper
 from peewee import *
 import click
 
-DATABASE = 'instance/cgap.sqlite'
+DATABASE = 'instance/pdc.sqlite'
 database = SqliteDatabase(DATABASE)
 
 class BaseModel(Model):
@@ -62,7 +62,7 @@ def get_db():
     return database
 
 def load_organization_seed():
-    with open('cgap/database/seeds/organization.csv') as f:
+    with open('pdc/database/seeds/organization.csv') as f:
         organization_reader = csv.reader(f)
         for organization_row in organization_reader:
             Organization.create(
@@ -89,7 +89,7 @@ def load_organization_seed():
 def load_proposal_seed():
     db = get_db()
 
-    with open('cgap/database/seeds/proposal.csv') as f:
+    with open('pdc/database/seeds/proposal.csv') as f:
         proposal_reader = csv.reader(f)
         for proposal_row in proposal_reader:
             Proposal.create(

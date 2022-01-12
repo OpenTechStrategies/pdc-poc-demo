@@ -1,4 +1,4 @@
-from cgap import create_app
+from pdc import create_app
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 app = create_app()

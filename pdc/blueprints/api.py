@@ -4,7 +4,7 @@ from flask import (
     Blueprint, g, request, redirect, url_for
 )
 from playhouse.shortcuts import model_to_dict
-from cgap.db import (
+from pdc.db import (
     Organization,
     Proposal,
 )

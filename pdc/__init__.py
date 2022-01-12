@@ -7,7 +7,7 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'cgap.sqlite'),
+        DATABASE=os.path.join(app.instance_path, 'pdc.sqlite'),
     )
 
     if test_config is None:
@@ -23,13 +23,13 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from cgap import db
+    from pdc import db
     db.init_app(app)
 
-    from cgap.blueprints import ux
+    from pdc.blueprints import ux
     app.register_blueprint(ux.bp)
 
-    from cgap.blueprints import api
+    from pdc.blueprints import api
     app.register_blueprint(api.bp)
 
     @app.route('/')

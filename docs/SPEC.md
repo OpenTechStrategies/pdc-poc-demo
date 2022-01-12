@@ -1,6 +1,6 @@
-# Proof-of-Concept Demo: Common Grant Application for Philanthropy (CGAP) -- Common Data Platform
+# Proof-of-Concept Demo: Philanthropy Data Commons (PDC) -- Common Data Platform
 
-The purpose of this CGAP Proof-of-Concept Demo is to show live
+The purpose of this PDC Proof-of-Concept Demo is to show live
 examples of how the envisioned Common Data Platform can help
 grantseekers and grantmakers.  This demo is not the fully-functioning
 data platform itself -- rather, it is a collection of interactive
@@ -11,14 +11,14 @@ The PoC Demo has three screens:
 1) **Grantseekers' data entry.**
 
    This screen is a mockup of how a Grants Management System (GMS) can
-   integrate with CGAP to improve the grantseeker experience.  It
-   demonstrates how a GMS can incorporate CGAP data to save
+   integrate with PDC to improve the grantseeker experience.  It
+   demonstrates how a GMS can incorporate PDC data to save
    grantseekers time and data entry effort, and improve data accuracy.
 
    It shows input fields that a grantseeking non-profit would
    typically fills in when applying for a grant (sometimes this
    happens via an online GMS, sometimes via a manually-submitted
-   document).  The fields come from the [CGAP core
+   document).  The fields come from the [PDC core
    fields](https://docs.google.com/spreadsheets/d/18bzxgnA7SFkQLTkUMUXJQeqx88g_SNGkCAXpgMpF4Ss/edit#gid=444784014)
    spreadsheet.
 
@@ -46,7 +46,7 @@ The PoC Demo has three screens:
 
    Note for implementors: there is some text on this screen too,
    explaining how the data comes from GMSs and *not* from applicants
-   logging in to the CGAP CDP and supplying that data manually.  The
+   logging in to the PDC CDP and supplying that data manually.  The
    point of this platform is to make less work, not more, for
    applicants.  Don't worry about the exact wording of that text for
    now; let's focus on the functionality first.
@@ -58,9 +58,9 @@ The PoC Demo has three screens:
 
    This screen shows a faceted search interface, enabling the user (a
    grantmaker) to search among the various non-profits whose core data
-   is in CGAP's Common Data Platform, discovering ones whose proposals
-   -- which were sent to *other* funders, and shared with CGAP under
-   CGAP's data access and governance policies -- are in areas of
+   is in PDC's Common Data Platform, discovering ones whose proposals
+   -- which were sent to *other* funders, and shared with PDC under
+   PDC's data access and governance policies -- are in areas of
    interest to the funder doing the search.
 
    The search must therefore match on both organizational information
@@ -68,12 +68,12 @@ The PoC Demo has three screens:
    associated with its corresponding proposing organization (see the
    [Entity Relationship Diagram (ERD)](TODO: WE NEED TO MAKE AN ERD)).
 
-3) **API documentation.** 
+3) **API documentation.**
 
    This screen shows technical documentation for the PoC Demo API,
    which is a design preview of the API by which others (e.g., GMS
-   vendors) will be able to send and receive data to/from the CGAP
-   Common Data Platform under the governance of CGAP's data access
+   vendors) will be able to send and receive data to/from the PDC
+   Common Data Platform under the governance of PDC's data access
    policies.
 
 TBD: There may be another view coming, or at least an API endpoint,
