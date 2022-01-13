@@ -1,4 +1,4 @@
-# Proof-of-Concept Demo: Common Grant Application for Philanthropy (CGAP) -- Common Data Platform
+# Proof-of-Concept Demo: Philanthropy Data Commons (PDC) -- Common Data Platform
 
 This is a demonstration project to show what a common grant
 application for philanthropy might look like.  See the [use cases
@@ -45,7 +45,7 @@ pipenv run flask init-db --seed
 Once you have set up your environment you can run the project via flask:
 
 ```
-$ export FLASK_APP=cgap
+$ export FLASK_APP=pdc
 $ pipenv run flask run
 ```
 
